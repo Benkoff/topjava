@@ -3,7 +3,6 @@ package ru.javawebinar.topjava.util;
 import ru.javawebinar.topjava.model.UserMeal;
 import ru.javawebinar.topjava.model.UserMealWithExceed;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Month;
@@ -52,6 +51,7 @@ public class UserMealsUtil {
                 LocalTime.of(12,0),
                 2000);
 
+        //TODO delete on completion
         for (UserMealWithExceed e : mealExceedList) {
             System.out.println(
                     e.getDateTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) +
@@ -66,46 +66,51 @@ public class UserMealsUtil {
                                                                     LocalTime startTime,
                                                                     LocalTime endTime,
                                                                     int caloriesPerDay) {
-        //clear and straightforward O(N) with 2 streams
-//        Map<LocalDate, Integer> totalCaloriesByDay = mealList
-//                .stream()
-//                .collect(
-//                        Collectors.groupingBy(
-//                                UserMeal::getDate,
-//                                Collectors.reducing(
-//                                        0,
-//                                        UserMeal::getCalories,
-//                                        Integer::sum)));
-//
-//        List result = mealList
-//                .stream()
-//                .filter(x -> TimeUtil.isBetween(LocalTime.from(x.getDateTime()), startTime, endTime))
-//                .map(x -> new UserMealWithExceed(
-//                        x.getDateTime(),
-//                        x.getDescription(),
-//                        x.getCalories(),
-//                        totalCaloriesByDay.get(x.getDate()) > caloriesPerDay))
-//                .collect(Collectors.toList());
-//
-//        return result;
-
-        //not so readable as above and obviously O(N*N) but in-line ;)
-        return mealList
+        /*
+        //clear and straightforward: 2 streams, complexity O(N)
+        Map<LocalDate, Integer> map = mealList
+                .stream()
+                .collect(
+                        Collectors.groupingBy(
+                                UserMeal::getDate,
+                                Collectors.reducing(
+                                        0,
+                                        UserMeal::getCalories,
+                                        Integer::sum)));
+        List result = mealList
                 .stream()
                 .filter(x -> TimeUtil.isBetween(LocalTime.from(x.getDateTime()), startTime, endTime))
                 .map(x -> new UserMealWithExceed(
                         x.getDateTime(),
                         x.getDescription(),
                         x.getCalories(),
-                        new Boolean(mealList.stream()
-                                .collect(
-                                        Collectors.groupingBy(
-                                                UserMeal::getDate,
-                                                Collectors.reducing(
-                                                        0,
-                                                        UserMeal::getCalories,
-                                                        Integer::sum)))
-                                .get(x.getDate()) > caloriesPerDay)))
+                        map.get(x.getDate()) > caloriesPerDay))
                 .collect(Collectors.toList());
+
+        return result;
+        */
+
+        // the same as above but inline
+        return mealList
+                .stream()
+                .collect(
+                        Collectors.collectingAndThen(
+                                Collectors.groupingBy(UserMeal::getDate,
+                                        Collectors.summingInt(UserMeal::getCalories)),
+                                map -> {
+                                    return mealList
+                                            .stream()
+                                            .filter(x ->
+                                                    TimeUtil.isBetween(LocalTime.from(x.getDateTime()), startTime, endTime))
+                                            .map(x -> {
+                                                return new UserMealWithExceed(
+                                                        x.getDateTime(),
+                                                        x.getDescription(),
+                                                        x.getCalories(),
+                                                        new Boolean(map.get(x.getDate()) > caloriesPerDay));
+                                            })
+                                            .collect(Collectors.toList());
+                                }
+                        ));
     }
 }
