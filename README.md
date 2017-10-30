@@ -87,7 +87,7 @@ public class SlidingCollector<T> implements Collector<T, List<List<T>>, List<Lis
     
     @Override
     public BinaryOperator<List<List<T>>> combiner() {
-        //фильтруем по временным рамкам startTime, endTime
+        //фильтруем по временным рамкам startTime, endTime?
         return new UserMealWithExceed(...);
     }
 
