@@ -3,12 +3,15 @@ package ru.javawebinar.topjava.util;
 import ru.javawebinar.topjava.model.UserMeal;
 import ru.javawebinar.topjava.model.UserMealWithExceed;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.stream.Collectors;
+
+import static java.util.Comparator.comparing;
 
 /**
  * GKislin
@@ -66,6 +69,40 @@ public class UserMealsUtil {
                                                                     LocalTime startTime,
                                                                     LocalTime endTime,
                                                                     int caloriesPerDay) {
+
+        //A single traditional loop is not so simple in fact
+        /*
+        List<UserMealWithExceed> finalList = new ArrayList<>();
+        mealList.sort(comparing(o -> o.getDate()));
+
+        Iterator<UserMeal> iterator = mealList.iterator();
+        UserMeal meal = iterator.next();
+        int sumPerDay = 0;
+        List<UserMeal> buffer = new ArrayList<>();
+        LocalDate currentDate = meal.getDate();
+
+        while (true) {
+            if (meal.getDate().equals(currentDate)) sumPerDay += meal.getCalories();
+            else {
+                for (UserMeal m : buffer)
+                    finalList.add(new UserMealWithExceed(m.getDateTime(), m.getDescription(), m.getCalories(),
+                            sumPerDay > caloriesPerDay));
+                sumPerDay = meal.getCalories();
+                currentDate = meal.getDate();
+                buffer = new ArrayList<>();
+            }
+            if (TimeUtil.isBetween(LocalTime.from(meal.getDateTime()), startTime, endTime)) buffer.add(meal);
+            if (!iterator.hasNext()) {
+                for (UserMeal m : buffer)
+                    finalList.add(new UserMealWithExceed(m.getDateTime(), m.getDescription(), m.getCalories(),
+                            sumPerDay > caloriesPerDay));
+                break;
+            }
+            meal = iterator.next();
+        }
+        return finalList;
+        */
+
         /*
         //clear and straightforward: 2 streams, complexity O(N)
         Map<LocalDate, Integer> map = mealList
