@@ -70,40 +70,6 @@ public class UserMealsUtil {
                                                                     LocalTime endTime,
                                                                     int caloriesPerDay) {
 
-        //A single traditional loop is not so simple in fact
-        /*
-        List<UserMealWithExceed> finalList = new ArrayList<>();
-        mealList.sort(comparing(o -> o.getDate()));
-
-        Iterator<UserMeal> iterator = mealList.iterator();
-        UserMeal meal = iterator.next();
-        int sumPerDay = 0;
-        List<UserMeal> buffer = new ArrayList<>();
-        LocalDate currentDate = meal.getDate();
-
-        while (true) {
-            if (meal.getDate().equals(currentDate)) sumPerDay += meal.getCalories();
-            else {
-                for (UserMeal m : buffer)
-                    finalList.add(new UserMealWithExceed(m.getDateTime(), m.getDescription(), m.getCalories(),
-                            sumPerDay > caloriesPerDay));
-                sumPerDay = meal.getCalories();
-                currentDate = meal.getDate();
-                buffer = new ArrayList<>();
-            }
-            if (TimeUtil.isBetween(LocalTime.from(meal.getDateTime()), startTime, endTime)) buffer.add(meal);
-            if (!iterator.hasNext()) {
-                for (UserMeal m : buffer)
-                    finalList.add(new UserMealWithExceed(m.getDateTime(), m.getDescription(), m.getCalories(),
-                            sumPerDay > caloriesPerDay));
-                break;
-            }
-            meal = iterator.next();
-        }
-        return finalList;
-        */
-
-        /*
         //clear and straightforward: 2 streams, complexity O(N)
         Map<LocalDate, Integer> map = mealList
                 .stream()
@@ -125,16 +91,21 @@ public class UserMealsUtil {
                 .collect(Collectors.toList());
 
         return result;
-        */
+    }
 
-        // the same as above but inline
+    public static List<UserMealWithExceed>  getFilteredWithExceededInline(List<UserMeal> mealList,
+                                                                    LocalTime startTime,
+                                                                    LocalTime endTime,
+                                                                    int caloriesPerDay) {
+
+        // the same as above but inline as they asked to do
         return mealList
                 .stream()
                 .collect(
                         Collectors.collectingAndThen(
                                 Collectors.groupingBy(UserMeal::getDate,
                                         Collectors.summingInt(UserMeal::getCalories)),
-                                map -> {
+                                dailyCaloriesMap -> {
                                     return mealList
                                             .stream()
                                             .filter(x ->
@@ -144,7 +115,7 @@ public class UserMealsUtil {
                                                         x.getDateTime(),
                                                         x.getDescription(),
                                                         x.getCalories(),
-                                                        new Boolean(map.get(x.getDate()) > caloriesPerDay));
+                                                        new Boolean(dailyCaloriesMap.get(x.getDate()) > caloriesPerDay));
                                             })
                                             .collect(Collectors.toList());
                                 }
