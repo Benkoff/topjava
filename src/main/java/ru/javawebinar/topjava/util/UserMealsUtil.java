@@ -53,16 +53,7 @@ public class UserMealsUtil {
                 LocalTime.of(7, 0),
                 LocalTime.of(12,0),
                 2000);
-
-        //TODO delete on completion
-        for (UserMealWithExceed e : mealExceedList) {
-            System.out.println(
-                    e.getDateTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) +
-                            " : " +
-                            e.getDescription() +
-                            " : " +
-                            (e.isExceed() ? "exceeds" : "ok"));
-        }
+        
     }
 
     public static List<UserMealWithExceed>  getFilteredWithExceeded(List<UserMeal> mealList,
