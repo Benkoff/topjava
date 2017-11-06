@@ -1,186 +1,279 @@
-Java Enterprise Online Project 
-===============================
-Разработка полнофункционального Spring/JPA Enterprise приложения c авторизацией и правами доступа на основе ролей с использованием наиболее популярных инструментов и технологий Java: Maven, Spring MVC, Security, JPA(Hibernate), REST(Jackson), Bootstrap (css,js), datatables, jQuery + plugins, Java 8 Stream and Time API и хранением в базах данных Postgresql и HSQLDB.
+# Онлайн проект <a href="https://github.com/JavaWebinar/topjava">Topjava</a>
+- **Не стоит стремиться прочитать все ссылки урока, их можно использовать как справочник. Гораздо важнее пройти основной материал урока и сделать Домашнее Задание**
+- **Обязательно посмотри <a href="https://github.com/JavaOPs/topjava/wiki/Git#%D0%9F%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D0%B0-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B-%D1%81-%D0%BF%D0%B0%D1%82%D1%87%D0%B0%D0%BC%D0%B8-%D0%BD%D0%B0-%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B5">правила работы с патчами на проекте</a>**
+- **Делать Apply Patch лучше по одному, непосредственно перед видео на эту тему, а при просмотре видео сразу отслеживать все изменения кода проекта по изменению в патче (`Version Control->Local Changes-> Ctrl+D`)**
+- **Код проекта обновляется и не всегда совпадает с видео (можно увидеть как развивался проект). Изменения в проекте указываю после соответствующего патча.**
 
-![topjava_structure](https://user-images.githubusercontent.com/13649199/27433714-8294e6fe-575e-11e7-9c41-7f6e16c5ebe5.jpg)
+## <a href="https://drive.google.com/drive/u/0/folders/0B9Ye2auQ_NsFfm5hSHEtbmxmN2kxb0NocVRwWl9KanowWXVCVXRZTlhaM09wQUswZkRidTA">Материалы занятия</a> (скачать все патчи можно через `Download/Скачать` папки patch)
+![image](https://cloud.githubusercontent.com/assets/13649199/18330295/5f2ca214-7560-11e6-8e1e-c0494f798c37.png)
 
-    Когда вы слышите что-то, вы забываете это.
-    Когда вы видите что-то, вы запоминаете это.
-    Но только когда вы начинаете делать это,
-    вы начинаете понимать это
+### ![correction](https://cloud.githubusercontent.com/assets/13649199/13672935/ef09ec1e-e6e7-11e5-9f79-d1641c05cbe6.png) Рефакторинг проекта
 
-    Старинная китайская поговорка
+#### Apply 1_0_fix.patch
+> - переименовал классы `UserMeal*` в более красивые `Meal*`
+> - удалил себя из шапки классов
+> - обновил версию `maven-compiler-plugin`
 
-## <a href="description.md">Описание и план проекта</a>
-### <a href="http://topjava.herokuapp.com/" target=_blank>Демо разрабатываемого приложения</a>
-### [Изменения проекта (Release Notes)](ReleaseNotes.md)
-### <a href="https://github.com/JavaOPs/topjava/wiki">Требования к участникам, Wiki</a>
-### <a href="cv.md">Составление резюме, подготовка к интервью, поиск работы</a>
+## ![hw](https://cloud.githubusercontent.com/assets/13649199/13672719/09593080-e6e7-11e5-81d1-5cb629c438ca.png) Разбор домашнего задания HW0:
+### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 1. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFOGU0a3ZUbFo3Skk">Optional: реализация getFilteredMealsWithExceeded через Stream API</a>
+#### Apply 1_1_HW0_stream.patch
 
-Вводное занятие
-===============
-## ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) <a href="https://drive.google.com/file/d/0B9Ye2auQ_NsFY1ZDNXRCd1NCTG8">Осваиваем Java Enterprise. Трудоустройство. Ответы на вопросы.</a>
-- <a href="https://goo.gl/XNVOj4">Слайды презентации</a>
-- <a href="http://zeroturnaround.com/rebellabs/java-tools-and-technologies-landscape-2016/">Java Tools and Technologies Landscape Report 2016</a>
-- [Java in 2017 Survey](http://www.baeldung.com/java-in-2017)
-- <a href="https://habrahabr.ru/post/308104/">Из юниоров в разработчики: получаем первую работу</a>
+- [Презентация Java 8](https://docs.google.com/presentation/d/1oltLkHK60FqIdsXjUdm4pPLSeC6KpNYjDsM0ips-qBw)
 
-#### Spring Pet-Clinic
-- <a href="https://github.com/spring-projects/spring-petclinic">Spring PetClinic Sample Application </a>
-- <a href="https://speakerdeck.com/michaelisvy/spring-petclinic-sample-application">Presentation</a>
+### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 2. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFdTJIQUExajZWWkE">Работа с git в IDEA. Реализация через цикл.</a>
+#### Apply 1_2_HW0_cycle.patch
 
-## ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) <a href="https://drive.google.com/file/d/0B9Ye2auQ_NsFSUNrdVc0bDZuX2s">Системы управления версиями. Git.</a>
--  **<a href="https://github.com/JavaOPs/topjava/wiki/Git">Wiki по ведению проекта в Git</a>**
--  <a href="http://ru.wikipedia.org/wiki/Система_управления_версиями">Система управления версиями</a>. <a href="http://ru.wikipedia.org/wiki/%D0%A1%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0_%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F_%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%D0%BC%D0%B8#.D0.A0.D0.B0.D1.81.D0.BF.D1.80.D0.B5.D0.B4.D0.B5.D0.BB.D1.91.D0.BD.D0.BD.D1.8B.D0.B5_.D1.81.D0.B8.D1.81.D1.82.D0.B5.D0.BC.D1.8B_.D1.83.D0.BF.D1.80.D0.B0.D0.B2.D0.BB.D0.B5.D0.BD.D0.B8.D1.8F_.D0.B2.D0.B5.D1.80.D1.81.D0.B8.D1.8F.D0.BC.D0.B8">VCS/DVSC</a>.
--  Ресурсы:            
-    -  <a href="https://try.github.io/levels/1/challenges/1">Интерактивная Git обучалка</a>
-    -  <a href="http://learngitbranching.js.org/">Еще одна интерактивная обучалка, по русски</a>    
-    -  <a href="https://git-scm.com/book/ru/v2">Книга Git</a>
-    -  <a href="https://illustrated-git.readthedocs.org/en/latest/#working-with-remote-repositories">Working with remote repositories</a>
-    -  <a href="https://www.youtube.com/playlist?list=PLIU76b8Cjem5B3sufBJ_KFTpKkMEvaTQR">Видео по обучению Git</a>
-    -  <a href="https://blog.interlinked.org/tutorials/git.html">Git Overview</a>
-    -  <a href="http://geekbrains.ru/gitstart">Видеокурс по Git</a>
-    -  [Основы Git за 20 минут](https://www.youtube.com/watch?v=TMeZGvtQnT8)
+> Изменения в проекте: `map.getOrDefault` заменил на `map.merge`, `for` заменены на `forEach`
 
-##  ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFZDdaaU5fZEo4X3c">Работа с проектом (выполнять инструкции)</a>
-> Проект постоянно улучшается, поэтому видео иногда отличается от кода проекта. Изменения указываю после видео: в `UserMeals/UserMealWithExceed` поля изменились на `private`
-- **<a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFRXM4WVdTTGN3Q28">Prepare_ to_ HW0.patch (скачать и положить в каталог вашего проекта)</a>**
+### ![question](https://cloud.githubusercontent.com/assets/13649199/13672858/9cd58692-e6e7-11e5-905d-c295d2a456f1.png) Вопросы по HW0
 
-##  Инструкция по шагам (из видео):</h3>
--  <a href="http://javaops.ru/view/soft">Установить ПО (git, JDK8, IntelliJ IDEA, Maven)</a>
--  Создать аккаунт на <a href="https://github.com">GitHub</a>
--  Сделать Fork **ЭТОГО** проекта (https://github.com/JavaOPs/topjava) </a>
--  Сделать локальный репозиторий проекта:
-            <pre>git clone https://github.com/[Ваш аккаунт]/topjava.git</pre>
--  Открыть и настроить проект в IDEA
-   - <a href="http://stackoverflow.com/questions/29695918/intellij-idea-console-issue#33035499">Выставить кодировку UTF-8 в консоли</a>
-   - <a href="https://github.com/JavaOPs/topjava/wiki/IDEA#%D0%9F%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%B8%D1%82%D1%8C-%D0%BA%D0%BE%D0%B4%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D1%83-utf-8">Поставить кодировку UTF-8</a>
-   - <a href="https://github.com/JavaOPs/topjava/wiki/IDEA#%D0%9F%D0%BE%D0%BC%D0%B5%D0%BD%D1%8F%D1%82%D1%8C-%D1%84%D0%BE%D0%BD%D1%82-%D0%BF%D0%BE-%D1%83%D0%BC%D0%BE%D0%BB%D1%87%D0%B0%D0%BD%D0%B8%D1%8E-dejavu">Поменять фонт по умолчанию (DejaVu)</a>
--  По ходу видео сделать Apply Patch... скаченного патча Prepare_ to_ HW0.patch
--  Закоммитить и запушить изменения (commit + push)
--  Сделать ветку домашнего задания
--  Выполнить задание и залить на GitHub (commit + push)
--  Переключиться в основную ветку проекта master.
+> что делает метод `Map.merge` ?
 
-## ![hw](https://cloud.githubusercontent.com/assets/13649199/13672719/09593080-e6e7-11e5-81d1-5cb629c438ca.png) Домашнее задание HW0
+никогда не надо лениться зайти в код `Map.merge` (`Ctrl+мышка` на методе) и почитать javadoc (`Ctrl+Q`). Когда привыкать, если не сейчас?
+
+> что означает `Integer::sum` ?
+
+это ссылка на метод, сокращенная форма лямбды. IDEA иногда выделяет желтым и предлагает замену (соглашаться по `Alt+Enter`).
+Например `m->m.getCalories()` заменяется на `Meal::getCalories`.
+
+> почему не использовать в `TimeUtil` методы `isBefore/isAfter` ?
+
+это строгие (excluded) сравнения, а нам также нужны краевые значения
+
+> В `MealsUtil` у нас где-то есть ключевое слово `final`, где-то нет. В чем разница?
+
+Я участвовал в одном  проекте, где `final` был обязательным (в сеттингах IDEA галочка стояла). Но это скорее исключение, чем правило в проектах java (в Java 8 вообще ввели эффективный final, те по факту). Во всех новомодных языках переменные final по умолчанию, а в java нужно помнить и везде добавлять, утомительно. Но если приучитесь - хуже не будет. Я обычно ставлю там, где важно по смыслу (если не забываю).
+
+> Почему у `User.registered` тип `Date`, а `Meal.dateTime` `LocalDateTime `?
+
+Время регистрации - абсолютное (конкретный момент), а время еды по бизнес логике относительно (те не зависит от часового пояса)
+
+### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 3. <a href="https://drive.google.com/file/d/0B9Ye2auQ_NsFcUVfU1hmYUx3Rzg">HW0 Optional 2: реализация в один проход и одной строкой Stream API</a>
+#### Apply 1_3_HW0_optional2.patch
+
+## Занятие 1:
+
+### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 4. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFRmo0YkVVaDJPTVE">Обзор используемых в проекте технологий. Интеграция ПО.</a>
+- [**RebelLabs Developer Productivity Report 2017: Why do you use the Java tools you use**](https://zeroturnaround.com/rebellabs/developer-productivity-report-2017-why-do-you-use-java-tools-you-use/)
+- <a href="http://zeroturnaround.com/rebellabs/java-tools-and-technologies-landscape-2016/">Обзор популярности инструментов и технологий Java за 2016 г.</a>
+-  <a href="http://zeroturnaround.com/rebellabs/java-tools-and-technologies-landscape-for-2014/">Обзор популярности инструментов и технологий Java за 2014 г.</a>
+-  <a href="http://www.youtube.com/watch?v=rJZHerwi8R0">Видео "Приложение Spring Pet Clinic"</a>
+-  Приложение <a href="https://github.com/spring-projects/spring-petclinic">Spring Pet Clinic</a>.
+
+### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 5. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFSlZMTXBJRXJpakU">Maven.</a>
+- Среда сборки проектов <a href="http://www.apache-maven.ru/" target="_blank">Maven</a>.
+- <a href="http://search.maven.org/#browse">The Central Repository</a>
+- Настройка пропертей Maven: кодировка, java version, зависимости, maven-compiler-plugin
+- <a href="http://maven.apache.org/guides/mini/guide-multiple-modules.html">The Reactor</a>. Snapshots
+- <a href="http://habrahabr.ru/blogs/java/106717/" target="_blank">Недостатки Maven</a>. Другие инструменты сборки.
+- Справочник:
+  - <a href="https://www.youtube.com/watch?v=21qdRgFsTy0">Видео: Maven vs Gradle vs SBT (Архипов, Борисов, Садогурский)</a>
+  - <a href="http://habrahabr.ru/post/77333/">Автоматизация сборки проекта</a>
+  - <a href="http://maven.apache.org/">Home Page</a>
+  - <a href="http://books.sonatype.com/mvnref-book/reference/index.html">Maven: The Complete Reference</a>
+  - <a href="http://study-and-dev.com/blog/build_management_maven_1/">Разработка ПО вместе с maven</a>
+  - <a href="http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html">Build Lifecycle</a>
+  - <a href="http://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html">Dependency Mechanism</a>
+  - <a href="http://habrahabr.ru/post/111408/">Создание своих архетипов и каталогов в Maven</a>
+  - <a href="http://www.ibm.com/developerworks/ru/library/j-5things13/">Зависимости, профили</a>
+  - <a href="http://blog.bintray.com/2014/02/11/bintray-as-pain-free-gateway-to-maven-central/">Bintray: gateway to Maven Central</a>
+
+### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 6. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFT3pWNkMzWVVybnc">WAR. Веб-контейнер Tomcat. Сервлеты.</a>
+> - **Нам нужна 8-я версия Tomcat (например [последняя 8.5.16](http://apache-mirror.rbc.ru/pub/apache/tomcat/tomcat-8/v8.5.16/bin/))**
+> - **Устанавливать Tomcat лучше простым скачиванием архива `apache-tomcat-8.5.16[-windows-xxx].zip` и копированием из него в каталог без пробелов и русских букв (пример `С:\java\apache-tomcat-8.5.16`)**. Не используйте Tomcat 8.5.13 и 9.0.0.M19 IDEA [из за бага Tomcat](https://stackoverflow.com/questions/43354676)
+
+#### Apply 1_4_switch_to_war.patch
+> - Обновил сервлеты до <a href="https://www.mkyong.com/web-development/the-web-xml-deployment-descriptor-examples/">версии 3.1</a>
+(Tomcat 8 использует это API, хотя для нас не принципиально, т.к. мы никакие <a href="https://ru.wikipedia.org/wiki/Сервлет_(Java)">фичи 3.x Servlet API</a> не используем)
+> - Переименовал `userList.jsp` в `users.jsp`
+> - Сервлет добавляется в следующем патче, те **в `web.xml` он будет подчеркиваться красным.**
+
+#### Apply 1_5_add_servlet_api.patch
+
+> - **Если зависимость `servlet-api` не подтянулась, <a href="https://github.com/JavaOPs/topjava/wiki/IDEA#%D0%9E%D0%B1%D0%BD%D0%BE%D0%B2%D0%B8%D1%82%D1%8C-%D0%B7%D0%B0%D0%B2%D0%B8%D1%81%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B8-%D0%B2-maven-%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B5">обновите maven проект</a>.**
+> - [Проверка, кто занял порт](https://stackoverflow.com/a/38953356/548473) (в случае проблем с запуском и дебагом на портах 8080, 8000)</a>
+> - [**Деплой war в Tomcat с Application context**](https://github.com/JavaOPs/topjava/wiki/IDEA#%D0%94%D0%B5%D0%BF%D0%BB%D0%BE%D0%B9-war-%D0%B2-tomcat-application-context-%D0%B4%D0%BE%D0%BB%D0%B6%D0%B5%D0%BD-%D0%B1%D1%8B%D1%82%D1%8C-%D1%82%D0%BE%D1%82-%D0%B6%D0%B5-%D1%87%D1%82%D0%BE-%D0%B8-url-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B4%D0%B5%D0%BF%D0%BB%D0%BE%D0%B8%D1%82%D1%8C-%D0%BD%D0%B0%D0%B4%D0%BE-war-exploded)
+> - [**Динамическое обновление без передеплоя**](https://github.com/JavaOPs/topjava/wiki/IDEA#%D0%94%D0%BB%D1%8F-%D0%B4%D0%B8%D0%BD%D0%B0%D0%BC%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B9-%D0%BF%D0%B5%D1%80%D0%B5%D0%B3%D1%80%D1%83%D0%B7%D0%BA%D0%B8-%D1%80%D0%B5%D1%81%D1%83%D1%80%D1%81%D0%BE%D0%B2-%D0%BA%D0%BD%D0%BE%D0%BF%D0%BA%D0%B0-%D0%BD%D0%B0%D0%B6%D0%BC%D0%B8%D1%82%D0%B5-%D0%BA%D0%BD%D0%BE%D0%BF%D0%BA%D1%83-update-resource-on-frame-deactivation)
+
+#### Apply 1_6_forward_to_redirect.patch
+
+- <a href="http://tomcat.apache.org/">Tomcat Home Page</a>
+- <a href="http://java-course.ru/student/book1/servlet/">Сервлеты.</a>
+- Томкат менеджер: [http://localhost:8080/manager](http://localhost:8080/manager)
+  - в `TOMCAT_HOME\conf\tomcat-users.xml` нужно добавить
 ```
-Реализовать метод UserMealsUtil.getFilteredWithExceeded:
--  должны возвращаться только записи между startTime и endTime 
--  поле UserMealWithExceed.exceed должно показывать, 
-                                     превышает ли сумма калорий за весь день параметра метода caloriesPerDay  
-        
-Т.е UserMealWithExceed - это запись одной еды, но поле exceeded будет одинаково для всех записей за этот день.
-    
-- Проверте результат выполнения ДЗ (можно проверить логику в http://topjava.herokuapp.com , список еды)
-- Оцените Time complexity вашего алгоритма, если он O(N*N)- попробуйте сделать O(N).
+<user username="tomcat" password="tomcat" roles="tomcat,manager-gui,admin-gui"/>
 ```
--  <a href="http://www.mscharhag.com/2014/02/java-8-datetime-api.html">Java 8 Date and Time API</a>
--  <a href="https://tproger.ru/translations/algorithms-and-data-structures">Алгоритмы и структуры данных для начинающих: сложность алгоритмов</a>
--  <a href="https://drive.google.com/file/d/0B9Ye2auQ_NsFNEJWRFJkVDA3TkU/view">Time complexity</a>
--  <a href="https://ru.wikipedia.org/wiki/Временная_сложность_алгоритма">Временная сложность алгоритма</a>
--  <a href="https://ru.wikipedia.org/wiki/Вычислительная_сложность">Вычислительная сложность</a>
+- Наше приложение: [http://localhost:8080/topjava](http://localhost:8080/topjava)
+- Наш сервлет:     [http://localhost:8080/topjava/users](http://localhost:8080/topjava/users)
+- Справочник:
+  - [HTTP](https://developer.mozilla.org/ru/docs/Web/HTTP)
+  - <a href="http://info.javarush.ru/idea_help/2014/01/22/Руководство-пользователя-IntelliJ-IDEA-Отладчик-.html">Отладчик IntelliJ IDEA</a>
+  - <a href="https://www.youtube.com/watch?v=tN8K1y-HSws&list=PLkKunJj_bZefB1_hhS68092rbF4HFtKjW&index=14">Yakov Fain: Intro to Java EE. Glassfish. Servlets (по русски)</a>
+  - <a href="https://www.youtube.com/watch?v=Vumy_fbo-Qs&list=PLkKunJj_bZefB1_hhS68092rbF4HFtKjW&index=15">Yakov Fain: HTTP Sessions, Cookies, WAR deployments, JSP (по русски)</a>
+  - <a href="https://www.youtube.com/playlist?list=PLoij6udfBncjHaO5s7Ln4w4BLj5FVc49P">Golovach Courses: Junior.February2014.Servlets</a>
+  - <a href="http://blog.trifork.com/2014/07/14/how-to-remotely-debug-application-running-on-tomcat-from-within-intellij-idea">Remotely debug on tomcat from IDEA</a>
+  - <a href="http://www.java2ee.ru/jsp/">Java Server Page</a>
+  - <a href="http://stackoverflow.com/questions/1890438/how-to-get-parameters-from-the-url-with-jsp#1890462">Java объекты, доступные в JSP</a>
+  - <a href="http://java-online.ru/jsp.xhtml">Java Server Pages (JSP)</a>
 
-#### Optional (Java 8 Stream API)
+### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 7. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFaTdYUnpLNFFUeXM">Логирование.</a>
+#### Apply 1_7_logging.patch
+
+> **Установите переменную окружения на TOPJAVA_ROOT на корень проекта и перезапустите IDEA. Слеши в пути должны быть в стиле unix (/)**
+
+> - изменения в проекте: убрал `LoggerWrapper` и логирую напрямую в логгер SLF4J. При логгировании через вспомогательный класс, в логе теряется имя исходного класса.
+> - удалил зависимость `jul-to-slf4j`. Она нам не нужена и, согласно <a href="https://www.youtube.com/watch?v=qzqAUUgB3v8">видео Владимира Красильщика про логирование</a>, она замедляет работу
+> - Не делать конкатенацию строк при логгировании сообщений, если уровень логирования в конфигурации выставлен выше уровня логирования в коде
+>   - [slf4j formatting with {}](http://stackoverflow.com/a/10596390/548473)
+>   - [What is the fastest way of (not) logging](https://www.slf4j.org/faq.html#logging_performance)
+
+- <a href="http://habrahabr.ru/post/113145/">Java Logging: история кошмара</a>
+- <a href="http://skipy.ru/useful/logging.html">Ведение лога приложения</a>
+- <a href="http://logging.apache.org/log4j/2.x/index.html">Log4j</a>, <a href="http://logback.qos.ch/">Logback</a>
+- <a href="http://www.slf4j.org/legacy.html">Добавление зависимостей логирования</a> в проект.
+- <a href="http://logback.qos.ch/manual/configuration.html#variableSubstitution">Logback variable substitution</a>
+
+#### Проверочные вопросы:
+- Что нужно изменить в `pom.xml`, чтобы перейти с logback на log4j ?
+
+### ![question](https://cloud.githubusercontent.com/assets/13649199/13672858/9cd58692-e6e7-11e5-905d-c295d2a456f1.png) Ваши вопросы
+
+> Почему `private static final Logger log` а не `LOG` ?
+
+- Так ее называют по умолчанию в проекте lombook.
+- Это [правило именования констант, которые не "deeply immutable"](https://google.github.io/styleguide/javaguide.html#s5.2.4-constant-names), те если их содержимое можно изменить.
+
+>  Используются ли еще где-то в реальной разработке JSP, или это уже устаревшая технология? Заменит ли ее JSF (https://javatalks.ru/topics/38037)?
+
+JSF и JSP- разные ниши и задачи.
+JSP- шаблонизатор, JSF- МVС фреймворк. Из моего опыта- с JSP сталкивался в 60% проектов. Его прямая замена: http://www.thymeleaf.org (в Spring-Boot по умолчанию), но в уже запущенных проектах встречется достаточно редко. JSP не умирает, потому что просто и дешево. Кроме того включается в большнство веб-контейнеров (в Tomcat его реализация Jasper)
+
+JSF- sun-овский еще фреймворк, с которым я ни разу не сталкивался и особого желания нет. Вот он как раз, по моему мнению, активно замещается хотя бы javascript фреймворками (angular, ember, react).
+
+> А зачем мы использовали logback? Почему SLF4J нас не устроило? Почему реализация логирования не log4j?
+
+`SLF4J-API` это API. Там есть только пустая реализация `org.slf4j.helpers.NOPLogger` (можно посмотреть в исходниках). Logback для новых проектов стал стандарт. *spring-petclinic* и *spring-boot* используют его по умолчанию.
+- http://logback.qos.ch/reasonsToSwitch.html
+
+---------
+
+## ![hw](https://cloud.githubusercontent.com/assets/13649199/13672719/09593080-e6e7-11e5-81d1-5cb629c438ca.png) Домашнее задание HW01 (делаем ветку HW01 от последнего патча в master)
+
+> На проекте мы **учимся мыслить и работать как Java разработчики уже сейчас**, потом это будет гораздо сложнее и стоить дороже.
+Вот на мой взгляд [хорошие советы новичкам](http://blog.csssr.ru/2016/09/19/how-to-be-a-beginner-developer). От себя я добавлю:
+> - Учись грамотно формулировать проблему. Проблема "у меня не работает" может иметь тысячи причин. В процессе формулирования очень часто приходит ее решение.</li>
+> - Учись исследовать проблему. Внимательное чтение логов и [умение дебажить](http://info.javarush.ru/idea_help/2014/01/22/Руководство-пользователя-IntelliJ-IDEA-Отладчик-.html) - основные навыки разработчика. Обычно самый верх самого нижнего эксепшена- причина ошибки, туда нужно ставить брекпойнт.
+> - Грамотно уделяй время каждой проблеме. Две крайности - сразу бросаться за помощью и бится над ней часами. Пробуй решить ее сам и в зависимости от проблемы выделяй на это разумное время.
+
+#### 1. Реализовать сервлет с отображением в таблице списка еды (в памяти и БЕЗ учета пользователя)
+
+> Деплоиться в Tomcat лучше как `war exploded`: нет упаковки в war и при нажатой кнопке `Update Resources on Frame Deactivation` можно обновляться css, html, jsp без передеплоя. При изменении `web.xml`, добавлении методов, классов необходим redeploy.
+
+- 1.1 По аналогии с `UserServlet` добавить `MealServlet` и `meals.jsp`
+  - Задеплоить приложение (war) в Tomcat c `applicationContext=topjava` (приложение должно быть доступно по <a href="http://localhost:8080/topjava">http://localhost:8080/topjava</a>)
+  - Попробовать разные деплои в Tomcat, remote и local debug
+- 1.2 Сделать отображения списка еды в JSP, цвет записи в таблице зависит от параметра `exceed` (красный/зеленый).
+  - 1.2.1 Список еды захардкодить (те проинициализировать в коде, желательно чтобы в проекте инициализация была только в одном месте)
+  - 1.2.2 Время выводить без 'T'
+  - 1.2.3 Список выводим БЕЗ фильтрации по `startTime/endTime`
+  - 1.2.4 Вариант реализации:
+    - из сервлета преобразуете еду в `List<MealWithExceeded>`;
+    - кладете список в запрос (`request.setAttribute`);
+    - делаете `forward` на jsp для отрисовки таблицы (при `redirect` атрибуты теряются).
+    - в `JSP` для цикла можно использовать `JSTL tag forEach`. Для подключения `JSTL` в `pom.xml` и шапку JSP нужно добавить:
 ```
-Сделать реализация через Java 8 Stream API. Заменяйте forEach оператором stream.map(..)
+    <dependency>
+       <groupId>javax.servlet</groupId>
+       <artifactId>jstl</artifactId>
+       <version>1.2</version>
+    </dependency>
+
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    ...
 ```
--  <a href="http://www.youtube.com/watch?v=_PDIVhEs6TM">Видео: Доступно о Java 8 Lambda</a>
--  <a href="https://web.archive.org/web/20170606044544/http://devcolibri.com/4137#t2">Java 8: Lambda выражения</a>
--  <a href="https://web.archive.org/web/20170606044544/http://devcolibri.com/4274#t7">Java 8: Потоки</a>
--  <a href="http://prologistic.com.ua/polnoe-rukovodstvo-po-java-8-stream.html">Pуководство по Java 8 Stream</a>
--  <a href="http://habrahabr.ru/post/224593/">Лямбда-выражения в Java 8</a>
--  <a href="https://github.com/winterbe/java8-tutorial">A Guide to Java 8</a>
--  <a href="http://habrahabr.ru/company/luxoft/blog/270383/">Шпаргалка Java Stream API</a>
--  <a href="https://www.youtube.com/watch?v=hEyCK4ueBlc">Алексея Владыкин: Элементы функционального программирования в Java</a>
--  <a href="https://www.youtube.com/watch?v=iD8H7cmxw_w">Yakov Fain о новом в Java 8</a>
--  <a href="http://stackoverflow.com/questions/28319064/java-8-best-way-to-transform-a-list-map-or-foreach">stream.map vs forEach</a>
--  Дополнительно
-   - [Сергей Куксенко — Stream API, часть 1](https://www.youtube.com/watch?v=O8oN4KSZEXE)
-   - [Сергей Куксенко — Stream API, часть 2](https://www.youtube.com/watch?v=i0Jr2l3jrDA)
 
-#### Замечания по использованию Stream API:
-- Когда встречаешь что-то непривычное, приходится перестраивать мозги. Например переход с процедурного на ООП программирование дается непросто. Те, кто не знает шаблонов (и не хоят учить) также их встречают плохо. Хорошая новость в том, что если это принять и начать использовать, то начинаешь получать от этого удовольствие. И тут главное не впасть в другую крайность:
-  - [Используйте Stream API проще (или не используйте вообще)](https://habrahabr.ru/post/337350/)
-- Если вас беспокоить производительность стримов, обязательно прочитайте про оптимизацию 
-    - ["Что? Где? Когда?"](http://optimization.guide/intro.html)
-    - [Перформанс: что в имени тебе моём?](https://habrahabr.ru/company/jugru/blog/338732/)
-    - [Performance это праздник](https://habrahabr.ru/post/326242/)
-    
-При использовании Stream API производительность улучшиться только на больших задачах, где возможно распараллеливание.
-Еще - просто так запустить и померять скорость JVM нельзя (как минимум дать прогреться и запустить очень большое число раз). Лучше использовать какие-нибудь бенчмарки, например [JMH](http://tutorials.jenkov.com/java-performance/jmh.html), который мы юзаем на другом проекте (Mastejava).
-  
-## ![error](https://cloud.githubusercontent.com/assets/13649199/13672935/ef09ec1e-e6e7-11e5-9f79-d1641c05cbe6.png) Замечания к HW0
-- 1: Код проекта менять можно! Одна из распространенных ошибок как в тестовых заданиях на собеседовании, так и при работе на проекте, что ничего нельзя менять. Конечно при правках в рабочем проекте обязятельно нужно проконсультироваться/проревьюится у авторов кода (находится по истории VCS)
-- 2: Наследовать `UserMealWithExceed` от `UserMeal` я не буду, т.к. это разные сущности: Transfer Object и Entity. Мы будет их проходить на 2м уроке.
-- 3: Правильная реализация должна быть простой и красивой, можно сделать 2-мя способами: через стримы и через циклы. Сложность должна быть O(N), т.е. без вложенных стримов и циклов.
-- 4: При реализации через циклы посмотрите в `Map` на методы `getOrDefault` или `merge`
-- 5: При реализации через `Stream` заменяйте `forEach` оператором `stream.map(..)`
-- 6: Объявляйте переменные непосредственно перед использованием (если возможно - сразу с инициализацией). При объявлении коллекций используйте тип переменной - интерфейс (Map, List, ..)
-- 7: Если IDEA предлагает оптимизацию (желтым подчеркивает), нарпимер заменить лямбду на метод-референс, соглашайтесь (Alt+Enter)
-- 8: Пользуйтесь форматированием кода в IDEA: `Alt+Ctrl+L`
-- 9: Перед check-in проверяйте чендж-лист (курсор на файл и Ctrl+D): не оставляйте в коде ничего лишнего (закомментированный код, TODO и пр.). Если файл не меняется (например только пробелы или переводы строк), не надо его чекинить, делайте ему `revert` (Git -> Revert / `Ctrl+Alt+Z`).
-- 10: `System.out.println` нельзя делать нигде, кроме как в `main`. Позже введем логирование.
-- 11: Результаты, возвращаемые `UserMealsUtil.getFilteredWithExceeded` мы будем использовать [в нашем приложении](http://topjava.herokuapp.com/) для фильтрации по времени и отображения еды правильным цветом.
-- 12: Обращайте внимание на комментарии к вашим коммитам в git. Они должны быть короткие и информативные (лучше на english)
------
+  - <a href="http://java-course.ru/student/book1/servlet/">Интернет-приложения на JAVA</a>
+  - <a href="http://java-course.ru/student/book1/jsp/">JSP</a>
+  - <a href="http://devcolibri.com/1250">JSTL для написания JSP страниц</a>
+  - <a href="http://javatutor.net/articles/jstl-patterns-for-developing-web-application-1">JSTL: Шаблоны для разработки веб-приложений в java</a>
+  - <a href="http://stackoverflow.com/questions/35606551/jstl-localdatetime-format">JSTL LocalDateTime format</a>
 
-### Полезные ресурсы
-> ВНИМАНИЕ:
->  - ДЗ первого урока будет связано с <a href="https://danielniko.wordpress.com/2012/04/17/simple-crud-using-jsp-servlet-and-mysql/">созданием небольшого CRUD приложения (в памяти, без DB) на JSP и сервлетах</a>. Введение будет, но предварительное знакомство не помешает.
->  - основы JavaSсript необходимы для понимания проекта, начиная с 8-го занятия!
+### Optional
+#### 2. Реализуем в ПАМЯТИ CRUD (create/read/update/delete) для еды
+**Пример: <a href="https://danielniko.wordpress.com/2012/04/17/simple-crud-using-jsp-servlet-and-mysql/">Simple CRUD using Servlet/JSP</a>**
+- 2.1 Хранение в памяти будет одна из наших CRUD реализаций (позже будет JDBC, JPA и DATA-JPA).
+- 2.2 Работать с реализацией CRUD через интерфейс, который не должен ничего знать о деталях реализации (Map, DB или что-то еще).
+- 2.3 Добавить поле `id` в `Meal/ MealWithExceed` и реализовать генерацию счетчика, УЧЕСТЬ МНОГОПОТОЧНОСТЬ СЕРВЕЛТОВ
+    - [обзор java.util.concurrent](https://habrahabr.ru/company/luxoft/blog/157273/)
+- 2.4 Сделать форму редактирования в JSP: AJAX/JavaScript использовать НЕ надо, делаем через `<form method="post">` и `doPost()` в сервлете.
+- 2.5 Для ввода дат и времени можно использовать <a href="https://webref.ru/html/input/type">html5 типы</a>, хотя они поддерживаются не всеми браузерами (<a href="https://robertnyman.com/html5/forms/input-types.html">протестировать свой браузер</a>). В конце курса мы добавим <a href="http://xdsoft.net/jqplugins/datetimepicker/">DateTimePicker jQuery plugin</a>, который будет работать на всех браузерах.
 
-Все остальное - опционально.
+## После выполнения ДЗ обязательно <a href="lesson01.md#-Типичные-ошибки">проверьте решение на ошибки</a>
 
-#### HTML, JavaScript, CSS 
-- [Справочник по WEB](https://developer.mozilla.org/ru/)
-- [Видео по WEB технологиям](https://www.youtube.com/user/WebMagistersRu/playlists)
-- [Изучение JavaScript в одном видео уроке за час](https://www.youtube.com/watch?v=QBWWplFkdzw)
-- <a href="http://www.w3schools.com/default.asp">HTML, CSS, JAVASCRIPT, SQL, JQUERY, BOOTSTRAP</a>
-- <a href="https://www.youtube.com/watch?v=j0ycGQKqMT4">Введение в программирование на JavaScript</a>
-- <a href="http://anton.shevchuk.name/javascript/html-css-javascript-standarts/">Стандарты кодирования для HTML, CSS и JavaScript’a</a>
-- <a href="http://www.intuit.ru/studies/courses/1102/134/info">Основы работы с HTML/CSS/JavaScript</a>
-- <a href="http://itchief.ru/lessons/javascript/94-javascript-introduction">JavaScript - Основы</a>
-- <a href="http://learn.javascript.ru/first-steps">Основы JavaScript</a>
-- <a href="http://itchief.ru/lessons/bootstrap-3/19-introduction-to-twitter-bootstrap-3">Bootstrap 3 - Основы</a>
-- <a href="http://anton.shevchuk.name/jquery/">jQuery для начинающих</a>
+### ![question](https://cloud.githubusercontent.com/assets/13649199/13672858/9cd58692-e6e7-11e5-905d-c295d2a456f1.png) Вопросы по HW1
 
-#### Java (базовые вещи)
-- <a href="http://www.intuit.ru/studies/courses/16/16/info">Интуит. Программирование на Java</a>
-- <a href="https://github.com/JavaOPs/masterjava#Первое-занятие-многопоточность">1й урок MasterJava: Многопоточность</a>
-- <a href="http://ggenikus.github.io/blog/2014/05/04/gc/">Основы Java garbage collection</a>
-- <a href="https://habrahabr.ru/post/134102/">Размер Java объектов</a>
-- <a href="http://www.quizful.net/post/java-reflection-api">Введение в Java Reflection API</a>
-- <a href="https://habrahabr.ru/users/tarzan82/topics/">Структуры данных в картинках</a>
-- <a href="https://habrahabr.ru/company/luxoft/blog/157273/">Обзор java.util.concurrent.*</a>
-- <a href="http://www.skipy.ru/technics/synchronization.html">Синхронизация потоков</a>
-- <a href="http://java67.blogspot.ru/2014/08/difference-between-string-literal-and-new-String-object-Java.html">String literal pool</a>
-- <a href="https://habrahabr.ru/post/132241/">Маленькие хитрости Java</a>
--  <a href="https://github.com/winterbe/java8-tutorial">A Guide to Java 8</a>
+> Не попадаю на страничку/брекпойнт в сервлете.
 
-### Туториалы, разное
-[Что нужно знать о бэкенде новичку в веб-разработке](https://tproger.ru/translations/backend-web-development)
-[Туториалы: Spring Framework, Hibernate, Java Core, JDBC](http://proselyte.net/tutorials/)
+- внимательно проверь url и applicationContext (Application Context должен быть тот же, что и url приложения: <a href="https://github.com/JavaOPs/topjava/wiki/IDEA#%D0%94%D0%B5%D0%BF%D0%BB%D0%BE%D0%B9-war-%D0%B2-tomcat-application-context-%D0%B4%D0%BE%D0%BB%D0%B6%D0%B5%D0%BD-%D0%B1%D1%8B%D1%82%D1%8C-%D1%82%D0%BE%D1%82-%D0%B6%D0%B5-%D1%87%D1%82%D0%BE-%D0%B8-url-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B4%D0%B5%D0%BF%D0%BB%D0%BE%D0%B8%D1%82%D1%8C-%D0%BD%D0%B0%D0%B4%D0%BE-war-exploded">wiki IDEA</a>)
+- посомтрите в task manager: возможно запущено несколько JVM и они мешают друг другу. Лишние java приложения убить.
 
-#### Сервлеты
--  <a href="https://web.archive.org/web/20170606044544/http://devcolibri.com/4284">Как создать Servlet? Полное руководство.</a>
--  <a href="https://danielniko.wordpress.com/2012/04/17/simple-crud-using-jsp-servlet-and-mysql/">Простое CRUD приложение на JSP и сервлетах</a>
+> Приложение не видит TOPJAVA_ROOT.
 
-#### JDBC, SQL
-- <a href="https://habrahabr.ru/post/123636/">Основы SQL на примере задачи</a>
--  <a href="https://www.youtube.com/playlist?list=PLIU76b8Cjem5qdMQLXiIwGLTLyUHkTqi2">Уроки по JDBC</a>
--  <a href="https://www.codecademy.com/learn/learn-sql">Learn SQL</a>
--  <a href="http://www.intuit.ru/studies/courses/5/5/info">Интуит. Основы SQL</a>
--  <a href="http://campus.codeschool.com/courses/try-sql/contents">Try SQL</a>
--  <a href="https://stepic.org/course/Введение-в-базы-данных-551">Курс "Введение в базы данных"</a>
+**После выставления переменной окружения IDEA нужно рестартовать. Слеши в пути должны быть в стиле unix (/)**. Проверить, видит ли java переменную окружения можно так: `System.getenv("TOPJAVA_ROOT")`. Еще вариант: добавить `-DTOPJAVA_ROOT=...` в опции запуска приложения, тогда она доступна из java как `System.getProperty("TOPJAVA_ROOT")`.
 
-#### Разное
--  <a href="http://jeeconf.com/materials/intellij-idea/">Эффективная работа с кодом в IntelliJ IDEA</a>
--  <a href="http://www.quizful.net/test">Quizful- тесты онлайн</a>
--  <a href="https://stepic.org/course/Введение-в-Linux-73">Введение в Linux</a>
+> Проблемы с кодировкой в POST (кракозябры).
 
-#### Книги
--  <a href="http://www.ozon.ru/context/detail/id/24828676/">Джошуа Блох: Java. Эффективное программирование. Второе издание</a>
--  <a href="http://www.labirint.ru/books/87603/">Гамма, Хелм, Джонсон: Приемы объектно-ориентированного проектирования. Паттерны проектирования</a>
--  <a href="http://www.bookvoed.ru/book?id=639284">Редмонд Э.: Семь баз данных за семь недель. Введение в современные базы данных и идеологию NoSQL</a>
--  <a href="http://www.ozon.ru/context/detail/id/3174887/">Brian Goetz: Java Concurrency in Practice</a>
--  <a href="http://bookvoed.ru/book?id=2593572">G.L. McDowell: Cracking the Coding Interview</a>
+Возможное решение - выставьте кодироку ДО первого чтения из request:
+```
+protected void doPost(HttpServletRequest request, ...) {
+    request.setCharacterEncoding("UTF-8");
+```
+
+> Если сервлет тыкают несколько пользователей / несколько браузеров, какого должно быть поведение? Нужно ли что-то делать с сессиями?
+
+В Optional нужно делать реализацию хранения  многопоточной. Cессии пока не используем  (начнутся, когда будет прикручивать авторизацию).
+
+> Для чего нам нужна многопоточная реализация коллекции, если каждый пользователь видит только себя?
+
+Реализация хранения в памяти у нас одна на всех. Те коллекция шарится между пользователями, а они в разных потоках ее дергают. Если несколько потоков одновременно будут изменять коллекцию без учета многопоточности (нарпимер один будет удалять, второй вставлять), мы получим `ConcurrentModificationException`
+
+> Предпочтительнее ли создавать новый объект `Meal` при каждом update?
+
+Если при обновлении не создавать копию, то сохраненный в памяти объект может кто-то попортить. Вопрос скорее доверия к коду- если проект большой и людей над ним трудится много, то вероятнее нужно копировать.
+
+> Почему теряются атрибуты при передаче на сервлет: `http://localhost:8080/topjava/meals?action=add&...` и `req.getAttribute("action")` = null ?
+
+См. <a href="http://stackoverflow.com/questions/5243754/difference-between-getattribute-and-getparameter">Difference between getAttribute() and getParameter()</a>. Отсюда также следует, что при редиректе атрибуты теряются.
+
+> Зачем нужен в jsp `<jsp:useBean id=".." scope="request" type=".."/>` ?
+
+<a href="http://www.java2ee.ru/jsp/useBean.html">jsp:useBean</a> нужен IDEA для автодополнений - она понимает тип переменной, которая уже доступна в JSP (например через setAttribute). И еще эта переменная становится доступной в java вставках. Для вывода в JSP это тэг не обязателен. Если тип переменной JSP не совпадает с тем, что в `jsp:useBean`, будет ошибка.
+
+----------------------------
+### ![error](https://cloud.githubusercontent.com/assets/13649199/13672935/ef09ec1e-e6e7-11e5-9f79-d1641c05cbe6.png) Типичные ошибки
+- 1 **Если в названии класса есть `Meal`, не нужно использовать слово meal в методах класса.**
+- 2 Привыкайте писать коментарии к чекину: одной фразой что вы сделали в нем. Например: *Meals CRUD implementation*
+- 3 Хранение в памяти и операции с ней должны выполняться просто и эффективно
+- 4 Хранить нужно `Meal` и конвертировать ее в `MealWithExceed` когда отдаем список на отображение в JSP. Иначе при редактировании любой записи или изменении юзером своей нормы `caloriesPerDay` нужно будет пересчитывать все записи юзера.
+- 5 Стили `color` можно применять ко всей строке таблицы `tr`, а не каждой ячейке.
+- 6 `DateTimeFormatter` можно сделать один заранее (он потокобезопасный в отличие от `SimpleDateFormatter`), а не создавать новый при каждом запросе.
+- 7 Работать с CRUD надо через интерфейс.
+- 8 Реализаций хранения будет несколько, нужно учитывать это в названии класса имплементации работы в памяти.
+- 9 В `web.xml` принято группировать сервлет со своим маппингом
+- 10 Не размещайте никакую логику (форматирование, счетчики) в бинах, где хранятся только данные (`Meal, MealWithExceed`)
+- 11 Еще раз: детали реализации в памяти не должны быть никому видны. Те НЕ НАДО счетчик размещать в `Meal` или `MealServlet` или `MealsUtil`, в базе же он будет по другому генерится.
+- 12 `volatile` при ++ не помогает от многопоточности. Почему?
+- 13 Обратите также внимание на то, чтобы реализация вашей коллекции для хранения еды была также многопоточной.
+- 14 Не делайте дублирование кода `MealsUtil`. Возможно вам пригодятся константы `LocalTime.MIN` и `LocalTime.MAX`
+- 15 Не дублируйте строки в `jsp`. Посмотрите на <a href="https://steveswinsburg.wordpress.com/2008/09/04/the-ternary-operator-and-jsp/">тернарный оператор</a>.
+- 16 после операции `delete` в браузере должен быть url `http:\\localhost:8080\topjava\meals`
+- 17 Перед чекином проверяйте свой ченджлист (`Ctrl+D` на файле из `Local Changes` - посмотреть что поменялось). Если там только пробелы/переводы строк, не надо его комитить - делайте файлу `Git->revert`.
+- 18 Учтите в названии реализации CRUD, что
+  - 18.1 у нас будет несколько реализаций (не только в памяти)
+  - 18.2 у нас будет 2 CRUD (для еды и пользователей). А в реальном проекте их намного больше.
+- 19 Сессии НЕ использовать! При редиректе все атрибуты (`req.getAttribute()`) теряются (см. вопрос выше). Сценарий редиректа:
+  - 1 из сервлета делаем редирект (снова на сервлет, не на JSP!)
+  - 2 снова заходим в сервлет
+  - 3 кладем нужные атрибуты и делаем forward на jsp
+  - 4 если очень хочется передать параметры из 1. в 2. можно сделать их через параметры запроса (например `meals?id=5`) и доставать через `reg.getParameter(id)`. В моей реализации такого не потребовалось.
